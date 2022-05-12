@@ -1,55 +1,31 @@
+import { defineConfig } from 'umi';
 
-// ref: https://umijs.org/config/
-export default {
+export default defineConfig({
   base: '/',
-  target: {
-    ie: 11
+  hash: true,
+  ssr: false,
+  publicPath: '/',
+  fastRefresh: {},
+  webpack5: {},
+  targets: {
+    ie: 11,
   },
-  hase: true,
-  treeShaking: true,
+  devServer: {
+    port: '3000',
+    host: 'localhost',
+    https: false,
+  },
+  theme: {
+    '@primary-color': '#1DA57A',
+  },
+  nodeModulesTransform: {
+    type: 'none',
+  },
   routes: [
     {
       path: '/',
-      component: '../layouts/index',
-      routes: [
-        { path: '/', component: '../pages/index' }
-      ]
-    }
+      component: '@/pages/index',
+    },
   ],
-  alias: {
-    '@': resolve(__dirname, '../src')
-  },
-  plugins: [
-    // ref: https://umijs.org/plugin/umi-plugin-react.html
-    [
-      'umi-plugin-react', {
-        antd: true,
-        dva: {
-          dynamicImport: true,
-          hmr: true
-        },
-        dynamicImport: {
-          webpackChunkName: true
-        },
-        title: 'magento-umi-headless',
-        dll: {
-          exclude: [],
-          include: []
-        },
-        locale: {
-          enable: true,
-          default: 'en-US'
-        },
-        routes: {
-          exclude: [
-            /models\//,
-            /services\//,
-            /model\.(t|j)sx?$/,
-            /service\.(t|j)sx?$/,
-            /components\//
-          ]
-        }
-      }
-    ]
-  ]
-}
+  chainWebpack: (config) => {},
+});
