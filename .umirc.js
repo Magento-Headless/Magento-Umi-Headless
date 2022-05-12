@@ -1,10 +1,16 @@
-import { defineConfig } from 'umi';
+import { resolve } from 'path'
+import { defineConfig } from 'umi'
 
-import { SystemConf } from './config/system.conf';
+import { SystemConf } from './config/system.conf'
 
 export default defineConfig({
   base: '/',
   hash: true,
+  // ssr: {
+  //   forceInitial: false,
+  //   devServerRender: true,
+  //   mode: 'string'
+  // },
   ssr: false,
   crossorigin: true,
   title: false,
@@ -12,28 +18,45 @@ export default defineConfig({
   fastRefresh: {},
   webpack5: {},
   targets: {
-    ie: 11,
+    ie: 11
   },
   devServer: {
     port: '3000',
     host: 'localhost',
-    https: false,
+    https: false
   },
   dva: {
     immer: false,
-    hmr: true,
+    hmr: true
   },
   theme: {
-    ...SystemConf.antd.theme,
+    ...SystemConf.antd.theme
   },
   nodeModulesTransform: {
-    type: 'none',
+    type: 'none'
+  },
+  alias: {
+    '@components': resolve(__dirname, './components')
   },
   routes: [
     {
       path: '/',
-      component: '@/pages/index',
-    },
+      component: '@/pages/index'
+    }
   ],
-  chainWebpack: (config) => {},
-});
+  extraBabelPlugins: [
+    [
+      'styled-components',
+      {
+        namespace: 'headless',
+        ssr: true,
+        displayName: false,
+        fileName: false,
+        minify: true,
+        pure: true,
+        transpileTemplateLiterals: true
+      }
+    ]
+  ],
+  chainWebpack: (config) => {}
+})

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "@config/*": ["config/*"],
+      "@components/*": ["components/*"],
+      "@graphql/*": ["graphql/*"],
+      "@svgs/*": ["svgs/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

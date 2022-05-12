@@ -1,9 +1,15 @@
-import { Button } from 'antd';
+import { Helmet } from 'umi'
+import { Button } from 'antd'
 
-export default function IndexPage() {
+const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Home Page</title>
+      </Helmet>
       <Button type="primary">Umi</Button>
     </div>
-  );
+  )
 }
+
+export default Home
