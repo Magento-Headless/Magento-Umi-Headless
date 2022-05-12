@@ -1,9 +1,13 @@
 import { defineConfig } from 'umi';
 
+import { SystemConf } from './config/system.conf';
+
 export default defineConfig({
   base: '/',
   hash: true,
   ssr: false,
+  crossorigin: true,
+  title: false,
   publicPath: '/',
   fastRefresh: {},
   webpack5: {},
@@ -15,8 +19,12 @@ export default defineConfig({
     host: 'localhost',
     https: false,
   },
+  dva: {
+    immer: false,
+    hmr: true,
+  },
   theme: {
-    '@primary-color': '#1DA57A',
+    ...SystemConf.antd.theme,
   },
   nodeModulesTransform: {
     type: 'none',
