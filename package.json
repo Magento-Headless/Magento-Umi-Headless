@@ -4,7 +4,7 @@
     "dev": "umi dev",
     "build": "umi build",
     "postinstall": "umi generate tmp",
-    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "prettier": "prettier --write '**/*.{js,jsx,json}'",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
   },
@@ -28,7 +28,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
+    "*.{js,jsx,json}": [
       "prettier --write"
     ],
     "*.ts?(x)": [
