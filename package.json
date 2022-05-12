@@ -1,5 +1,13 @@
 {
+  "name": "pwa",
+  "author": "Headless Software Corp",
+  "license": "",
+  "copyright": "@ Headless Software Corp. All Rights Reserved",
+  "version": "0.0.1",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "umi dev",
     "build": "umi build",
@@ -12,16 +20,15 @@
     "react": "17.x",
     "react-dom": "17.x",
     "redux-logger": "^3.0.6",
+    "styled-components": "^5.3.5",
     "umi": "^3.5.23"
   },
   "devDependencies": {
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.5.23",
+    "babel-plugin-styled-components": "^2.0.7",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",
-    "typescript": "^4.1.2",
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
