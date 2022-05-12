@@ -30,9 +30,6 @@
   "lint-staged": {
     "*.{js,jsx,json}": [
       "prettier --write"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write"
     ]
   }
 }
